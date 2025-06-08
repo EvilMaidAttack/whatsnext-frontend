@@ -1,2 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
-@import './styles/colors';
+@use './styles/colors' as *;
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  transition: color 0.2s, background-color 0.2s;
+  }
+
+.wn-text-muted {
+    color: var(--color-muted);
+}
+
+.wn-bg-surface {
+    background-color: var(--color-surface);
+}
+
+.wn-text-primary {
+    color: var(--color-primary);
+}
+
+.wn-text-muted,
+.wn-bg-surface,
+.wn-text-primary {
+  transition: color 0.2s, background-color 0.2s;
+}

@@ -1,0 +1,13 @@
+.wn-card {
+    background-color: var(--color-surface);
+    margin: auto;
+    border-radius: 8px;
+    padding: 32px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15)
+}
+
+.wn-card-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 24px;
+}

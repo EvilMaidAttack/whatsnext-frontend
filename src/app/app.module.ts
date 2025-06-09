@@ -13,6 +13,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { SettingComponent } from './setting/setting.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ChatComponent } from './chat/chat.component';
+import { LoginComponent } from './login/login.component';
+import { PublicLayoutComponent } from './layouts/public-layout/public-layout.component';
+import { AppLayoutComponent } from './layouts/app-layout/app-layout.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +27,17 @@ import { ChatComponent } from './chat/chat.component';
     ProfileComponent,
     SettingComponent,
     NotFoundComponent,
-    ChatComponent
+    ChatComponent,
+    LoginComponent,
+    PublicLayoutComponent,
+    AppLayoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot([
       {path: '', component: ChatsComponent},
+      {path: 'login', component: LoginComponent},
       {path: 'chat', component: ChatsComponent},
       {path: 'design', component: DesignComponent},
       {path: 'profile', component: ProfileComponent},

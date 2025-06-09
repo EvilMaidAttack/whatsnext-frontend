@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class NavigationComponent {
 
+  viewMode = "chat";
+
+  changeViewMode(mode: string){
+    this.viewMode = mode;
+  }
+
 }

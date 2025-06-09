@@ -13,6 +13,20 @@ body {
   transition: color 0.2s, background-color 0.2s;
   }
 
+.app-layout {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  height: 100%;
+}
+
+.overview-pane {
+  overflow-y: auto; /* enables scrolling */
+}
+
+.detail-pane {
+  overflow-y: auto; /* enables scrolling */
+}
+
 .wn-text-muted {
     color: var(--color-muted);
 }

@@ -1,6 +1,6 @@
 .app {
   display: flex;
-  width: 960px;       
+  width: 1200px;       
   min-width: 600px;
   height: 90vh;
   margin: 40px auto;      
@@ -9,4 +9,8 @@
   background-color: var(--color-surface);
   box-shadow: 0 4px 12px var(--color-shadow); 
   transition: background-color 0.2s;
+  }
+
+  .app-container {
+    width: 100%;
   }

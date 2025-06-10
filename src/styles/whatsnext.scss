@@ -1,6 +1,8 @@
+// Card styling
 .wn-card {
-    background-color: var(--color-surface);
+    background-color: var(--color-background);
     margin: auto;
+
     border-radius: 8px;
     padding: 32px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15)
@@ -10,4 +12,47 @@
     font-size: 24px;
     font-weight: 600;
     margin-bottom: 24px;
+}
+
+
+// Input styling
+.wn-input-group {
+    position: relative;
+    margin: 20px;
+}
+
+.wn-input-group .wn-input {
+    width: 15rem;
+    height: 40px;
+    font-size: 16px;
+    color: var(--color-text);
+    padding: 0 10px;
+    background-color: transparent;
+    border: 1.2px solid var(--color-text);
+    border-radius: 5px;
+    outline: none;
+}
+
+.wn-input-group .wn-input-label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: var(--color-text);
+    padding: 0 5px;
+    pointer-events: none;
+    transition: .25s;
+}
+
+.wn-input-group .wn-input:focus~.wn-input-label,
+.wn-input-group .wn-input.validation-success~.wn-input-label {
+    top:0px;
+    font-size: 12px;
+    background-color: var(--color-background);
+}
+
+.wn-input-group .wn-input.validation-success,
+.wn-input-group .wn-input.validation-success~.wn-input-label {
+    color: green;
 }

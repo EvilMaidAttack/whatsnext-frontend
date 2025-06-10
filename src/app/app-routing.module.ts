@@ -10,15 +10,20 @@ import { ProfileComponent } from './profile/profile.component';
 import { DesignComponent } from './design/design.component';
 
 const routes: Routes = [
-   {
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
     path: '',
     component: PublicLayoutComponent,
     children: [
       { path: 'login', component: LoginComponent },
       { path: 'signup', component: SignupComponent },
     ]
-   },
-   {
+  },
+  {
     path: '',
     component: AppLayoutComponent,
     children: [
@@ -28,11 +33,11 @@ const routes: Routes = [
       { path: 'profile', component: ProfileComponent },
       { path: 'setting', component: SettingComponent },
     ]
-   },
-   {
+  },
+  {
     path: '**',
     redirectTo: 'login'
-   }
+  }
 ]
 
 @NgModule({

@@ -17,6 +17,7 @@ import { ChatComponent } from './chat/chat.component';
 import { LoginComponent } from './login/login.component';
 import { PublicLayoutComponent } from './layouts/public-layout/public-layout.component';
 import { AppLayoutComponent } from './layouts/app-layout/app-layout.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -38,7 +39,8 @@ import { AppLayoutComponent } from './layouts/app-layout/app-layout.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [ThemeService],
   bootstrap: [AppComponent]

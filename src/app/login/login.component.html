@@ -14,11 +14,29 @@
                     formControlName="email">
                     <label  class="wn-input-label">Email</label>
                 </div>
+                <div class="wn-validation-message" *ngIf="email?.touched && email?.invalid">
+                    <div *ngIf="email?.errors?.required">Email address is required.</div>
+                    <div *ngIf="email?.errors?.email">Enter a valid Email address.</div>
+                </div>
+
                 <div class="wn-input-group">
                     <input type="password" class="wn-input"
                     [ngClass] = "{'validation-success': validate_control(password)==='valid', 'validation-fail': validate_control(password)==='invalid'}"
                     formControlName="password">
                     <label class="wn-input-label">Password</label>
+                </div>
+                <div class="wn-validation-message" *ngIf="password?.touched && password?.invalid">
+                    <div *ngIf="password?.errors?.required">Password is required.</div>
+                    <div *ngIf="password?.errors?.minLength.actual < password?.errors?.minLength.required">
+                        Password must be atleast {{password?.errors?.minLength.required}} characters.
+                    </div>
+                    <div *ngIf="password?.errors?.lowercase">Password must contain atleast 1 lowercase character.</div>
+                    <div *ngIf="password?.errors?.uppercase">Password must contain atleast 1 uppercase character.</div>
+                    <div *ngIf="password?.errors?.uppercase">Password must contain atleast 1 number.</div>
+                </div>
+
+                <div class="wn-input-group">
+                    <button class="wn-button wn-button-primary" (click)="debug(password)">Login</button>
                 </div>
             </form>
         </div>

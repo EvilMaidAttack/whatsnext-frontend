@@ -7,6 +7,8 @@
   --color-muted: #667781;
   --color-accent: #53BDEB;
   --color-shadow: #0000001a;
+  --color-success: #2ECC71;
+  --color-fail: #FF4C30;
 }
   
   [data-theme="dark"] {
@@ -18,4 +20,6 @@
     --color-muted: #8696A0;
     --color-accent: #53BDEB;
     --color-shadow: #0000001a;
+    --color-success: #2ECC71;
+    --color-fail: #FF4C30;
   }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PasswordValidators } from '../common/validations/password.validator';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent {
   constructor(private fb: FormBuilder){
     this.form = fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
+      password: ['', [Validators.required, PasswordValidators.passwordRequirementsMustMeet]]
     })
   }
 
@@ -22,6 +23,11 @@ export class LoginComponent {
     if (control?.touched && control?.valid)
       return 'valid'
     else return 'unknown'
+  }
+
+  debug(x:any){
+    console.log(x);
+    
   }
 
   get email(){

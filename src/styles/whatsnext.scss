@@ -54,5 +54,31 @@
 
 .wn-input-group .wn-input.validation-success,
 .wn-input-group .wn-input.validation-success~.wn-input-label {
-    color: green;
+    color: var(--color-success);
+    border-color: var(--color-success);
+}
+
+.wn-input-group .wn-input.validation-fail,
+.wn-input-group .wn-input.validation-fail~.wn-input-label {
+    color: var(--color-fail);
+    border-color: var(--color-fail)
+}
+
+.wn-input-group .wn-input.validation-fail~.wn-input-label {
+    top:0px;
+    font-size: 12px;
+    background-color: var(--color-background);
+}
+
+.wn-validation-message {
+    color: var(--color-fail);
+    font-size: 12px;
+    transform: translateY(-15px);
+    margin: 0 25px;
+}
+
+
+// Button styling
+.wn-button {
+    background-color: transparent;
 }

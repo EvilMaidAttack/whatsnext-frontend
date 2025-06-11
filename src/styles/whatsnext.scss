@@ -1,3 +1,8 @@
+// image & logo
+.wn-logo {
+    height: 50px;
+}
+
 // Card styling
 .wn-card {
     background-color: var(--color-background);
@@ -79,6 +84,15 @@
 
 
 // Button styling
-.wn-button {
+.wn-btn {
     background-color: transparent;
+    border-radius: 1.5rem;
+    width: 100%;
+    padding: 5px 0;
+    border: 0 solid transparent
+}
+
+.wn-btn-primary {
+    background-color: var(--color-accent);
+    color: var(--color-text-reverse)
 }

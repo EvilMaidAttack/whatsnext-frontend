@@ -9,6 +9,8 @@
   --color-shadow: #0000001a;
   --color-success: #2ECC71;
   --color-fail: #FF4C30;
+  --color-accent: #089961;
+  --color-text-reverse:#E9EDEF;
 }
   
   [data-theme="dark"] {
@@ -22,4 +24,6 @@
     --color-shadow: #0000001a;
     --color-success: #2ECC71;
     --color-fail: #FF4C30;
+    --color-accent: #089961;
+    --color-text-reverse: #111;
   }

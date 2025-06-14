@@ -3,6 +3,28 @@
     height: 50px;
 }
 
+
+// or-separator
+.or-separator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: grey;
+}
+
+.or-separator::before, .or-separator::after {
+    content: '';
+    position:relative;
+    width: 100%;
+    height: 1px;
+    background-color: grey;
+}
+
+.or-separator .or-text {
+    margin: 0 20px;
+}
+
+
 // Card styling
 .wn-card {
     background-color: var(--color-background);

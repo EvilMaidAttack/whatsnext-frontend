@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PasswordValidators } from '../common/validations/password.validator';
+import { AuthService } from 'src/common/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,11 +11,17 @@ import { PasswordValidators } from '../common/validations/password.validator';
 export class LoginComponent {
   form: FormGroup;
 
-  constructor(private fb: FormBuilder){
+  constructor(private fb: FormBuilder, private authService: AuthService){
     this.form = fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, PasswordValidators.passwordRequirementsMustMeet]]
     })
+  }
+
+  login(){
+    console.log(this.form.controls)
+    //this.authService.login()
+    
   }
 
   validate_control(control: AbstractControl | null){

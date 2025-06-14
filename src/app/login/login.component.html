@@ -5,7 +5,11 @@
         </div>
 
         <div class="wn-card-body">
-            <form [formGroup]="form">
+            <div class="or-separator">
+                <span class="or-text">or</span>
+            </div>
+
+            <form [formGroup]="form" (ngSubmit)="login()">
                 <div class="wn-input-group">
                     <input type="text" class="wn-input" 
                     [ngClass] = "{'validation-success': validate_control(email)==='valid', 'validation-fail': validate_control(email)==='invalid'}"
@@ -34,7 +38,7 @@
                 </div>
 
                 <div class="wn-input-group">
-                    <button class="wn-btn wn-btn-primary" (click)="debug(password)">Login</button>
+                    <button class="wn-btn wn-btn-primary">Login</button>
                 </div>
             </form>
         </div>

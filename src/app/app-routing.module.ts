@@ -8,6 +8,7 @@ import { ChatComponent } from './chat/chat.component';
 import { SettingComponent } from './setting/setting.component';
 import { ProfileComponent } from './profile/profile.component';
 import { DesignComponent } from './design/design.component';
+import { ChatsComponent } from './chats/chats.component';
 
 const routes: Routes = [
   {
@@ -28,7 +29,7 @@ const routes: Routes = [
     component: AppLayoutComponent,
     children: [
       { path: '', redirectTo: 'chat', pathMatch: 'full' },
-      { path: 'chat', component: ChatComponent },
+      { path: 'chat', component: ChatsComponent },
       { path: 'design', component: DesignComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'setting', component: SettingComponent },

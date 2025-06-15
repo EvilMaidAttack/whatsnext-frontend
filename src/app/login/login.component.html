@@ -29,12 +29,12 @@
                 </div>
                 <div class="wn-validation-message" *ngIf="password?.touched && password?.invalid">
                     <div *ngIf="password?.errors?.required">Password is required.</div>
-                    <div *ngIf="password?.errors?.minLength.actual < password?.errors?.minLength.required">
+                    <!-- <div *ngIf="password?.errors?.minLength.actual < password?.errors?.minLength.required">
                         Password must be atleast {{password?.errors?.minLength.required}} characters.
                     </div>
                     <div *ngIf="password?.errors?.lowercase">Password must contain atleast 1 lowercase character.</div>
                     <div *ngIf="password?.errors?.uppercase">Password must contain atleast 1 uppercase character.</div>
-                    <div *ngIf="password?.errors?.uppercase">Password must contain atleast 1 number.</div>
+                    <div *ngIf="password?.errors?.uppercase">Password must contain atleast 1 number.</div> -->
                 </div>
 
                 <div class="wn-input-group">

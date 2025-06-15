@@ -1,5 +1,9 @@
 <div class="app-layout d-grid">
   <div class="overview-pane border-end">
+    <p>some example text</p>
+    <ul *ngIf="chats">
+      <li *ngFor="let chat of chats">{{chat.chat_partner_name}}</li>
+    </ul>
   </div>
   <div class="detail-pane">
     <app-chat></app-chat>

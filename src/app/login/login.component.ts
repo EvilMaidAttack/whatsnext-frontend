@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PasswordValidators } from '../common/validations/password.validator';
-import { AuthService } from 'src/common/services/auth.service';
+import { AuthService } from 'src/app/common/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,16 +12,20 @@ import { AuthService } from 'src/common/services/auth.service';
 export class LoginComponent {
   form: FormGroup;
 
-  constructor(private fb: FormBuilder, private authService: AuthService){
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router){
     this.form = fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, PasswordValidators.passwordRequirementsMustMeet]]
+      password: ['', [Validators.required]]
     })
   }
 
   login(){
-    console.log(this.form.controls)
-    //this.authService.login()
+    let credentials = this.form.value;
+    this.authService.login(
+      credentials,
+      () => this.performRouting(),
+      () => console.log("Wrong credentials. Please try again!")
+    )
     
   }
 
@@ -30,6 +35,10 @@ export class LoginComponent {
     if (control?.touched && control?.valid)
       return 'valid'
     else return 'unknown'
+  }
+
+  performRouting(){
+    this.router.navigate(['chat'])
   }
 
   debug(x:any){

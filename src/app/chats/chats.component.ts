@@ -16,7 +16,7 @@ export class ChatsComponent implements OnInit {
     this.chatService.getAll().subscribe({next: 
       data => {
         this.chats = data;
-        console.log("data fetched!");
+        console.log(this.chats);
       }
     })
   }

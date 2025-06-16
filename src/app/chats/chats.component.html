@@ -1,11 +1,29 @@
 <div class="app-layout d-grid">
-  <div class="overview-pane border-end">
-    <p>some example text</p>
-    <ul *ngIf="chats">
-      <li *ngFor="let chat of chats">{{chat.chat_partner_name}}</li>
-    </ul>
+  <div class="overview-pane wn-border-end">
+
+    <div class="wn-list-group">
+      <div class="wn-list-group-item" *ngFor="let chat of chats">
+
+        <!--Profile image-->
+        <div class="wn-list-group-image">
+          <img src="assets/images/default-icon.png" width="40px">
+        </div>
+
+        <!-- Text content-->
+        <div class="wn-list-group-content">
+          <div class="wn-top-row">
+            <span class="wn-chat-name"> {{chat.chat_partner_name}} </span>
+            <span class="wn-chat-time"> {{chat.last_message?.timestamp | date:'shortTime'}} </span>
+          </div>
+          <div class="wn-chat-preview"> {{chat.last_message?.content | shortText:35}} </div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
+
   <div class="detail-pane">
-    <app-chat></app-chat>
+    <app-chat requestedChatId=""></app-chat>
   </div>
 </div>

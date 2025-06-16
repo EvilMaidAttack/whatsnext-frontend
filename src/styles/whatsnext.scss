@@ -118,3 +118,58 @@
     background-color: var(--color-accent);
     color: var(--color-text-reverse)
 }
+
+// list groups
+.wn-list-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    cursor: pointer;
+}
+
+.wn-list-group .wn-list-group-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--color-background);
+    transition: background-color 0.2s ease;
+}
+
+.wn-list-group-item:hover {
+    background-color: var(--color-background);
+}
+
+.wn-list-group-image img {
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 1rem;
+}
+
+.wn-list-group-item .wn-list-group-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.wn-list-group-content .wn-top-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.wn-top-row .wn-chat-name {
+    font-size: 0.85rem;
+}
+
+.wn-top-row .wn-chat-time {
+    font-size: 0.75rem;
+}
+
+.wn-list-group-content .wn-chat-preview {
+    font-size: 0.75rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

@@ -1,7 +1,7 @@
 import { SignupComponent } from './signup/signup.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule, provideHttpClient } from '@angular/common/http'
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +19,8 @@ import { PublicLayoutComponent } from './layouts/public-layout/public-layout.com
 import { AppLayoutComponent } from './layouts/app-layout/app-layout.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './common/services/auth.service';
+import { AuthInterceptor } from './common/interceptors/auth.interceptor';
+import { ShortTextPipe } from './common/pipe/short-text.pipe';
 
 
 
@@ -36,7 +38,8 @@ import { AuthService } from './common/services/auth.service';
     LoginComponent,
     PublicLayoutComponent,
     AppLayoutComponent,
-    SignupComponent
+    SignupComponent,
+    ShortTextPipe
   ],
   imports: [
     BrowserModule,
@@ -47,6 +50,11 @@ import { AuthService } from './common/services/auth.service';
   providers: [
     ThemeService,
     AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

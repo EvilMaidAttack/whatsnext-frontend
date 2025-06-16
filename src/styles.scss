@@ -42,3 +42,7 @@ body {
 .wn-text-primary {
   transition: color 0.2s, background-color 0.2s;
 }
+
+.wn-border-end {
+  border-right: 1px solid var(--color-background);
+}

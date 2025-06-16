@@ -30,6 +30,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'chat', pathMatch: 'full' },
       { path: 'chat', component: ChatsComponent },
+      { path: 'chat/:id', component: ChatsComponent },
       { path: 'design', component: DesignComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'setting', component: SettingComponent },

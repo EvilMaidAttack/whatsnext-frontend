@@ -1,14 +1,20 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss']
 })
-export class ChatComponent {
+export class ChatComponent implements OnChanges{
 
   chat: IChat;
-  @Input("requestedChatId") requestedChatId: string;
+  @Input("chatId") chatId: string | null;
+
+  ngOnChanges(changes: SimpleChanges): void {
+      
+  }
+
+
 }
 
 

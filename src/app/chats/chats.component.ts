@@ -24,6 +24,7 @@ export class ChatsComponent implements OnInit {
 
     this.route.paramMap.subscribe(params => {
       this.selectedChatId = params.get('id');
+      
     });
 
   }

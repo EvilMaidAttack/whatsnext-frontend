@@ -5,25 +5,27 @@
   --color-background: #fff;
   --color-surface: #F0F2F5;
   --color-muted: #667781;
-  --color-accent: #53BDEB;
   --color-shadow: #0000001a;
   --color-success: #2ECC71;
   --color-fail: #FF4C30;
-  --color-accent: #089961;
+  --color-accent: #DBF5C5;
+  --color-accent-hover: #C3ECA2;
   --color-text-reverse:#E9EDEF;
+  --color-chat-bg: #E4DCD3;
 }
-  
-  [data-theme="dark"] {
+
+[data-theme="dark"] {
     --color-primary: #005C4B;
     --color-secondary: #0A332C;
     --color-text: #E9EDEF;
     --color-background: #121B22;
     --color-surface: #202C33;
     --color-muted: #8696A0;
-    --color-accent: #53BDEB;
     --color-shadow: #0000001a;
     --color-success: #2ECC71;
     --color-fail: #FF4C30;
     --color-accent: #089961;
+    --color-accent-hover: #06B176;
     --color-text-reverse: #111;
+    --color-chat-bg: #09141A;
   }

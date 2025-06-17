@@ -17,7 +17,7 @@ import { ChatComponent } from './chat/chat.component';
 import { LoginComponent } from './login/login.component';
 import { PublicLayoutComponent } from './layouts/public-layout/public-layout.component';
 import { AppLayoutComponent } from './layouts/app-layout/app-layout.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './common/services/auth.service';
 import { AuthInterceptor } from './common/interceptors/auth.interceptor';
 import { ShortTextPipe } from './common/pipe/short-text.pipe';
@@ -45,7 +45,8 @@ import { ShortTextPipe } from './common/pipe/short-text.pipe';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     ThemeService,

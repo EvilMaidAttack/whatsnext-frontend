@@ -2,7 +2,7 @@
   <div class="overview-pane wn-border-end">
 
     <div class="wn-list-group">
-      <div class="wn-list-group-item" *ngFor="let chat of chats" [routerLink]="['/chat', chat.id]">
+      <div class="wn-list-group-item" *ngFor="let chat of chats" [routerLink]="['/chat', chat.id]" routerLinkActive="active">
 
         <!--Profile image-->
         <div class="wn-list-group-image">

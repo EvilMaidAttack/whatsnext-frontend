@@ -111,12 +111,17 @@
     border-radius: 1.5rem;
     width: 100%;
     padding: 5px 0;
-    border: 0 solid transparent
+    border: 0 solid transparent;
+    transition: background-color 0.2s ease;
 }
 
 .wn-btn-primary {
     background-color: var(--color-accent);
-    color: var(--color-text-reverse)
+    color: var(--color-text)
+}
+
+.wn-btn-primary:hover {
+    background-color: var(--color-accent-hover);
 }
 
 // list groups

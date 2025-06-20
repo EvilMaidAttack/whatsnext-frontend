@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, AfterViewChecked, ElementRef, ViewChild } from '@angular/core';
 import { ChatService } from '../common/services/chat.service';
 
 @Component({
@@ -6,12 +6,15 @@ import { ChatService } from '../common/services/chat.service';
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss']
 })
-export class ChatComponent implements OnChanges{
+export class ChatComponent implements OnChanges, AfterViewChecked{
 
-  chat: IChat | null = null;
   @Input("chatId") chatId: string | null;
-  newMessage: string = '';
+  chat: IChat | null = null;
+  newMessageText: string = '';
+  isTyping = true;
 
+  @ViewChild('messageContainer') messageContainer: ElementRef;
+ 
   constructor(private chatService: ChatService){}
 
   ngOnChanges(changes: SimpleChanges): void {   
@@ -19,6 +22,10 @@ export class ChatComponent implements OnChanges{
       this.loadChat(this.chatId);
     }
       
+  }
+
+  ngAfterViewChecked(): void {
+      this.scrollToBottom()
   }
 
   loadChat(id: string){
@@ -31,35 +38,45 @@ export class ChatComponent implements OnChanges{
   }
 
   sendMessage() {
-  if (!this.newMessage.trim() || !this.chat) return;
+    if (this.newMessageText != '' && this.chatId && this.chat) {
+      const newMessage: IMessageDTO = {
+        sender: 'user',
+        content: this.newMessageText,
+        is_received: true
+      }
+      this.chatService.postMessage(newMessage, this.chatId).subscribe({
+        next: (message) => {
+          if (this.chat){
+            this.chat.messages?.push(message);
+            this.newMessageText = '';
+            this.handleAIResponse();
+          }
+        },
+        error: (err) => {
+          console.log("Could not process message!");
+        } 
+      });
 
-  const message: IMessage = {
-    id: Date.now(), // temp ID
-    sender: 'user',
-    content: this.newMessage,
-    timestamp: new Date(),
-    is_received: true
-  };
+    }
+    else {
+      console.log("No valid message");
+    }
 
-  // Push user message
-  this.chat.messages = this.chat.messages || [];
-  this.chat.messages.push(message);
+  }
 
-  // Reset input
-  this.newMessage = '';
+  handleAIResponse(){
 
-  // Optionally, fake an AI response after 1s
-  setTimeout(() => {
-    const aiReply: IMessage = {
-      id: Date.now() + 1,
-      sender: 'ai',
-      content: 'Hello! I am your assistant 😊',
-      timestamp: new Date(),
-      is_received: true
-    };
-    this.chat!.messages!.push(aiReply);
-  }, 1000);
-}
+  }
+
+  scrollToBottom(){
+    try {
+      this.messageContainer.nativeElement.scrollTop = this.messageContainer.nativeElement.scrollHeight;
+    }
+    catch(error) {
+      console.error("Scroll failed");
+    }
+
+  }
 
 
 }
@@ -81,4 +98,10 @@ export interface IMessage {
   content: string;
   timestamp: Date;
   is_received: boolean;
+}
+
+export interface IMessageDTO {
+  sender: 'user' | 'ai';
+  content: string;
+  is_received: boolean
 }

@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IChat } from 'src/app/chat/chat.component';
+import { IChat, IMessage, IMessageDTO } from 'src/app/chat/chat.component';
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +19,12 @@ export class ChatService {
   get(id:string):Observable<IChat> {
     return this.http.get<IChat>(`${this.rootUrl}chatrooms/${id}`);
   }
+
+  postMessage(message: IMessageDTO, chatId: string):Observable<IMessage>{
+    return this.http.post<IMessage>(`${this.rootUrl}chatrooms/${chatId}/messages/`,message);
+
+  }
+
+
 
 }

@@ -1,17 +1,22 @@
 <div class="chat-container" *ngIf="chat">
   <h2 class="chat-header">{{ chat.chat_partner_name }}</h2>
 
-  <div class="messages">
+  <div class="messages" #messageContainer>
     <div
       *ngFor="let message of chat.messages"
       [ngClass]="message.sender === 'user' ? 'message user' : 'message ai'"
     >
       {{ message.content }}
     </div>
+    <div *ngIf="isTyping" class="message ai typing-indicator">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
   </div>
 
   <div class="input-container">
-    <input type="text" placeholder="Type a message..." />
-    <button class="bi bi-send"></button>
+    <input type="text" [(ngModel)]="newMessageText" (keyup.enter) = "sendMessage()" placeholder="Type a message..." />
+    <button class="bi bi-send" (click)="sendMessage()"></button>
   </div>
 </div>

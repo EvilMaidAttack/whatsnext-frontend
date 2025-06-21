@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges, AfterViewChecked, ElementRef, ViewChild } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, AfterViewChecked, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { ChatService } from '../common/services/chat.service';
 
 @Component({
@@ -11,9 +11,9 @@ export class ChatComponent implements OnChanges, AfterViewChecked{
   @Input("chatId") chatId: string | null;
   chat: IChat | null = null;
   newMessageText: string = '';
-  isTyping = true;
+  isTyping = false;
 
-  @ViewChild('messageContainer') messageContainer: ElementRef;
+  @ViewChild('messageContainer') private messageContainer!: ElementRef;
  
   constructor(private chatService: ChatService){}
 
@@ -25,8 +25,9 @@ export class ChatComponent implements OnChanges, AfterViewChecked{
   }
 
   ngAfterViewChecked(): void {
-      this.scrollToBottom()
+    this.scrollToBottom();
   }
+
 
   loadChat(id: string){
     this.chatService.get(id).subscribe({
@@ -65,6 +66,11 @@ export class ChatComponent implements OnChanges, AfterViewChecked{
   }
 
   handleAIResponse(){
+    this.isTyping = true;
+    if (this.chatId){
+      this.chatService.generateAIResponse(this.chatId);
+    }
+    
 
   }
 

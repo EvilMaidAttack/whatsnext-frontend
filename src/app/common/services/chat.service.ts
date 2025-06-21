@@ -25,6 +25,11 @@ export class ChatService {
 
   }
 
+  generateAIResponse(chatId: string){
+    // TODO: continue @ Backend -> Define method to generate ai response and put it to messages
+    return 
+  }
+
 
 
 }

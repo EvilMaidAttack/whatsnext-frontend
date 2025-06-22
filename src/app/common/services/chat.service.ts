@@ -25,9 +25,8 @@ export class ChatService {
 
   }
 
-  generateAIResponse(chatId: string){
-    // TODO: continue @ Backend -> Define method to generate ai response and put it to messages
-    return 
+  generateAIResponse(chatId: string, message:IMessageDTO) : Observable<IMessage>{
+    return this.http.post<IMessage>(`${this.rootUrl}chatrooms/${chatId}/messages/ai-response/`, message);
   }
 
 

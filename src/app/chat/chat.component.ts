@@ -50,7 +50,9 @@ export class ChatComponent implements OnChanges, AfterViewChecked{
           if (this.chat){
             this.chat.messages?.push(message);
             this.newMessageText = '';
-            this.handleAIResponse();
+
+            const latest_message: IMessageDTO = {sender: message.sender, content: message.content, is_received: message.is_received}
+            this.handleAIResponse(latest_message);
           }
         },
         error: (err) => {
@@ -65,21 +67,28 @@ export class ChatComponent implements OnChanges, AfterViewChecked{
 
   }
 
-  handleAIResponse(){
+  handleAIResponse(message: IMessageDTO){
     this.isTyping = true;
     if (this.chatId){
-      this.chatService.generateAIResponse(this.chatId);
+      this.chatService.generateAIResponse(this.chatId, message).subscribe({
+        next: (aiMessage) => {
+          this.chat?.messages?.push(aiMessage);
+          this.isTyping = false;
+        },
+        error: (err) => {
+          console.log("Error when trying to generate AI response.");
+          this.isTyping = false;
+        }
+      });
     }
-    
-
   }
 
   scrollToBottom(){
     try {
-      this.messageContainer.nativeElement.scrollTop = this.messageContainer.nativeElement.scrollHeight;
+      this.messageContainer.nativeElement.scrollTop = this.messageContainer?.nativeElement.scrollHeight;
     }
     catch(error) {
-      console.error("Scroll failed");
+      console.error("Scroll failed: " + error);
     }
 
   }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatService } from '../common/services/chat.service';
 import { ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog'
+import { FileUploadComponent } from '../file-upload/file-upload.component';
 
 @Component({
   selector: 'app-chats',
@@ -12,7 +14,7 @@ export class ChatsComponent implements OnInit {
   chats;
   selectedChatId: string | null = null;
 
-  constructor(private chatService: ChatService, private route: ActivatedRoute){}
+  constructor(private chatService: ChatService, private route: ActivatedRoute, private dialog: MatDialog){}
 
   ngOnInit(): void {
     this.chatService.getAll().subscribe({next: 
@@ -27,6 +29,15 @@ export class ChatsComponent implements OnInit {
       
     });
 
+  }
+
+  openUploadDialog(){
+    this.dialog.open(FileUploadComponent, {
+      width: '400px',
+      disableClose: false,
+      autoFocus: true,
+      backdropClass: 'custom-backdrop'
+    });
   }
 
 

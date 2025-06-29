@@ -1,0 +1,28 @@
+<!--COPY PASTED - has to be adjusted TODO-->
+<h2 mat-dialog-content>Datei hochladen</h2>
+
+<div mat-dialog-content>
+  <div class="dropzone">
+    <ng-container>
+      <p>📂 Datei hierhin ziehen oder auswählen</p>
+      <button mat-stroked-button color="primary" (click)="fileInput.click()">Datei auswählen</button>
+      <input type="file" hidden #fileInput >
+    </ng-container>
+
+    <ng-container >
+      <p></p>
+    </ng-container>
+  </div>
+
+  <mat-form-field appearance="fill" class="filename-input">
+    <mat-label>Dateiname</mat-label>
+    <input matInput placeholder="z. B. Protokoll.pdf">
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions align="end">
+  <button mat-button >Abbrechen</button>
+  <button mat-raised-button color="primary">
+    Hochladen
+  </button>
+</div>

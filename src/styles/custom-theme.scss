@@ -1,0 +1,15 @@
+@use '@angular/material' as mat;
+
+$primary: mat.define-palette(mat.$green-palette, 300); // closest to #D9FDD3
+$accent:  mat.define-palette(mat.$light-green-palette, 200); // closest to #DBF5C5
+$warn:    mat.define-palette(mat.$red-palette);
+
+$theme: mat.define-light-theme((
+  color: (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+  )
+));
+
+@include mat.all-component-themes($theme);

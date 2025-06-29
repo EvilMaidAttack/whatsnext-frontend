@@ -21,9 +21,16 @@
       </div>
     </div>
 
+    <div class="upload-button-container">
+      <button mat-fab (click)="openUploadDialog()">
+        <i class="bi bi-plus-lg"></i>
+      </button>
+    </div>
+
   </div>
 
   <div class="detail-pane">
     <app-chat [chatId]="selectedChatId"></app-chat>
   </div>
 </div>
+

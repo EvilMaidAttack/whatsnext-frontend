@@ -1,6 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
 @use './styles/colors' as *;
 @use './styles/whatsnext' as *;
+@use './styles/custom-theme.scss' as *;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+/* You can add global styles to this file, and also import other style files */
 
 body {
   margin: 0;
@@ -45,4 +57,9 @@ body {
 
 .wn-border-end {
   border-right: 1px solid var(--color-background);
+}
+
+.custom-backdrop {
+  background-color: rgba(0, 0, 0, 0.6); // darker than default
+  backdrop-filter: blur(4px); // optional: softens background
 }

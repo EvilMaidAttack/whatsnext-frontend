@@ -21,7 +21,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './common/services/auth.service';
 import { AuthInterceptor } from './common/interceptors/auth.interceptor';
 import { ShortTextPipe } from './common/pipe/short-text.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -39,14 +45,20 @@ import { ShortTextPipe } from './common/pipe/short-text.pipe';
     PublicLayoutComponent,
     AppLayoutComponent,
     SignupComponent,
-    ShortTextPipe
+    ShortTextPipe,
+    FileUploadComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [
     ThemeService,
